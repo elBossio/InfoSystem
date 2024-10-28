@@ -1,0 +1,26 @@
+﻿<Window x:Class="InfoSystemApp.MainWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Система справочной информации" Height="600" Width="800">
+    <Grid>
+        <ComboBox x:Name="DeviceTypeComboBox" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="200"/>
+
+        <Button x:Name="LoadButton" Content="Загрузить" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Width="100" Click="LoadButton_Click"/>
+
+        <DataGrid x:Name="DeviceDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,50,10,150" VerticalAlignment="Top" SelectionChanged="DeviceDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Идентификатор" Binding="{Binding Id}" Width="*"/>
+                <DataGridTextColumn Header="UID" Binding="{Binding Uid}" Width="*"/>
+                <DataGridTextColumn Header="Обозначение" Binding="{Binding Code}" Width="*"/>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel x:Name="PropertiesPanel" Orientation="Vertical" HorizontalAlignment="Left" Margin="10,300,10,10" VerticalAlignment="Bottom">
+            <TextBlock x:Name="PropertiesPanelHeader" Text="Свойства выбранного устройства:" FontWeight="Bold"/>
+            <TextBlock x:Name="PropertyTextBlock"/>
+        </StackPanel>
+
+        <Button x:Name="SwitchLanguageButton" Content="Switch Language" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="120" Click="SwitchLanguage_Click"/>
+    </Grid>
+</Window>
